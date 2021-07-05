@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Calculator
 {
@@ -10,10 +11,8 @@ namespace Calculator
             bool success = false;
             decimal input1;
             decimal input2;
-
-            CalcInputs inputs = new CalcInputs();
-
-
+            List<string> operators = new List<string> {"+","-","/","*"};
+       
             while (!done)
             {
                 Console.Out.WriteLine("Please enter what you would like to add or subtract with spaces between each entry, or enter x to exit.");
@@ -22,7 +21,7 @@ namespace Calculator
                 if (!input.Trim().Equals("x", StringComparison.CurrentCultureIgnoreCase))
                 {
                     var numArray = input.Trim().Split(" ");
-                    if ((numArray[1].Equals("+", StringComparison.CurrentCultureIgnoreCase)|| numArray[1].Equals("-", StringComparison.CurrentCultureIgnoreCase)) && numArray.Length == 3)
+                    if (operators.Contains(numArray[1])&& numArray.Length == 3)
                     {
                         success = Decimal.TryParse(numArray[0], out input1);
 
@@ -34,10 +33,16 @@ namespace Calculator
                                 switch (numArray[1])
                                 {
                                     case "+":
-                                    Console.WriteLine("The sum is {0}.", input1 + input2);
+                                    Console.WriteLine("The result is {0}.", input1 + input2);
                                         break;
                                     case "-":
                                         Console.WriteLine("The result is {0}.", input1 - input2);
+                                        break;
+                                    case "*":
+                                        Console.WriteLine("The result is {0}.", input1 * input2);
+                                        break;
+                                    case "/":
+                                        Console.WriteLine("The result is {0}.", input1/input2);
                                         break;
                                 }
                             }
