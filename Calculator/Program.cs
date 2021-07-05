@@ -13,39 +13,44 @@ namespace Calculator
 
             CalcInputs inputs = new CalcInputs();
 
+
             while (!done)
             {
-                Console.Out.WriteLine("Please enter two numbers to add.");
-                Console.Out.WriteLine("Please enter the first number. Enter x to exit.");
-                string in1 = Console.ReadLine();
+                Console.Out.WriteLine("Please enter what you would like to add or enter x to exit.");
+                string input = Console.ReadLine();
 
-                if (!in1.Equals("x", StringComparison.CurrentCultureIgnoreCase))
+                if (!input.Trim().Equals("x", StringComparison.CurrentCultureIgnoreCase))
                 {
-                    success = Decimal.TryParse(in1, out input1);
-                    if (success)
+                    var numArray = input.Trim().Split(" ");
+                    if (numArray[1].Equals("+", StringComparison.CurrentCultureIgnoreCase) && numArray.Length == 3)
                     {
-                        Console.Out.WriteLine("Please enter the second number. Enter x to exit.");
-                        string in2 = Console.ReadLine();
+                        success = Decimal.TryParse(numArray[0], out input1);
 
-                        if (!in2.Equals("x", StringComparison.CurrentCultureIgnoreCase)) {
-
-                            success = Decimal.TryParse(in2, out input2);
-                            if (success)  {
+                        if (success)
+                        {
+                            success = Decimal.TryParse(numArray[2], out input2);
+                            if (success)
+                            {
                                 Console.WriteLine("The sum is {0}.", input1 + input2);
                             }
-                            else {
-                                Console.WriteLine("Please enter a number.\nThe second entry is in an invalid format.");
+                            else
+                            {
+                                Console.WriteLine("Please re-enter.\nThe second entry is in an invalid format.");
                             }
                         }
-                        else {
-                            done = true;
+                        else
+                        {
+                            Console.WriteLine("Please re-enter.\nThe first entry is in an invalid format.");
                         }
                     }
-                    else {
-                        Console.WriteLine("Please enter a number.\nThe first entry is in an invalid format.");
+                    else
+                    {
+                        Console.WriteLine("Please re-submit your entry as it is invalid.");
                     }
-          }
-                else {
+                }
+
+                else
+                {
                     done = true;
                 }
             }
