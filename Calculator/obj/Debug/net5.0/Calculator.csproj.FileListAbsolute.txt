@@ -1,0 +1,16 @@
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\Calculator.csprojAssemblyReference.cache
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\Calculator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\Calculator.AssemblyInfoInputs.cache
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\Calculator.AssemblyInfo.cs
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\Calculator.csproj.CoreCompileInputs.cache
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\bin\Debug\net5.0\Calculator.exe
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\bin\Debug\net5.0\Calculator.deps.json
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\bin\Debug\net5.0\Calculator.runtimeconfig.json
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\bin\Debug\net5.0\Calculator.runtimeconfig.dev.json
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\bin\Debug\net5.0\Calculator.dll
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\bin\Debug\net5.0\ref\Calculator.dll
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\bin\Debug\net5.0\Calculator.pdb
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\Calculator.dll
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\ref\Calculator.dll
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\Calculator.pdb
+C:\Users\ElizabethDavis\Documents\Improving\Practice\Calculator\Calculator\obj\Debug\net5.0\Calculator.genruntimeconfig.cache
