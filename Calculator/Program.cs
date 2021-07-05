@@ -6,8 +6,8 @@ namespace Calculator
     class Program
     {
         static void Main(string[] args)
-        { 
-            RunCalculator(); 
+        {
+            RunCalculator();
         }
 
         public static void RunCalculator()
@@ -28,11 +28,11 @@ namespace Calculator
                 {
                     var numArray = input.Trim().Split(" ");
 
-                    if (numArray.Length == 3) 
-                    { 
-                        if(operators.Contains(numArray[1])) {
-                        success = Decimal.TryParse(numArray[0], out input1);
-
+                    if (numArray.Length == 3)
+                    {
+                        if (operators.Contains(numArray[1]))
+                        {
+                            success = Decimal.TryParse(numArray[0], out input1);
                             if (success)
                             {
                                 success = Decimal.TryParse(numArray[2], out input2);
@@ -73,14 +73,14 @@ namespace Calculator
                         success = Decimal.TryParse(numArray[1], out input1);
 
                         if (success)
-                        { 
+                        {
                             switch (numArray[0])
                             {
                                 case "+":
                                     result += input1;
                                     break;
                                 case "-":
-                                    result -= input1; 
+                                    result -= input1;
                                     break;
                                 case "*":
                                     result *= input1;
@@ -89,21 +89,21 @@ namespace Calculator
                                     result /= input1;
                                     break;
                             }
-                             Console.WriteLine("The result is {0}.", result); 
+                            Console.WriteLine("The result is {0}.", result);
                         }
                         else
                         {
                             Console.WriteLine("Please re-submit your entry as it is invalid.\n An operation must be in the form '8 + 4', or, '+ 4' for a cumulative result.");
                         }
                     }
-                   else if (numArray.Length < 2)
+                    else if (numArray.Length < 2)
                     {
                         Console.Out.WriteLine("Please re-submit your entry as it is invalid.\n You must enter at least two terms separated by spaces.");
                     }
-                    else
-                    {
-                        done = true;
-                    }
+                }
+                else
+                {
+                    done = true;
                 }
             }
         }
