@@ -32,7 +32,7 @@ namespace Calculator
                             }
                         }
                         if (!success) {
-                            Console.WriteLine("Please enter a number.\nThe format is incorrect.");
+                            Console.WriteLine("Please enter a number.\nThis is not a number.");
                         } 
                     }
                     else {
