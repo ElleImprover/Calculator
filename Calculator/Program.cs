@@ -7,12 +7,19 @@ namespace Calculator
     {
         static void Main(string[] args)
         {
+            
+            RunCalculator();
+
+        }
+
+        public static void RunCalculator()
+        {
             bool done = false;
             bool success = false;
             decimal input1;
             decimal input2;
-            List<string> operators = new List<string> {"+","-","/","*"};
-       
+            List<string> operators = new List<string> { "+", "-", "/", "*" };
+
             while (!done)
             {
                 Console.Out.WriteLine("Please enter what you would like to add, subtract, multiply or divide with spaces between each entry, or type 'exit' to exit.");
@@ -21,7 +28,7 @@ namespace Calculator
                 if (!input.Trim().Equals("exit", StringComparison.CurrentCultureIgnoreCase))
                 {
                     var numArray = input.Trim().Split(" ");
-                    if (operators.Contains(numArray[1])&& numArray.Length == 3)
+                    if (operators.Contains(numArray[1]) && numArray.Length == 3)
                     {
                         success = Decimal.TryParse(numArray[0], out input1);
 
@@ -33,7 +40,7 @@ namespace Calculator
                                 switch (numArray[1])
                                 {
                                     case "+":
-                                    Console.WriteLine("The result is {0}.", input1 + input2);
+                                        Console.WriteLine("The result is {0}.", input1 + input2);
                                         break;
                                     case "-":
                                         Console.WriteLine("The result is {0}.", input1 - input2);
@@ -42,7 +49,7 @@ namespace Calculator
                                         Console.WriteLine("The result is {0}.", input1 * input2);
                                         break;
                                     case "/":
-                                        Console.WriteLine("The result is {0}.", input1/input2);
+                                        Console.WriteLine("The result is {0}.", input1 / input2);
                                         break;
                                 }
                             }
