@@ -18,13 +18,14 @@ namespace Calculator
             decimal input2;
             decimal result = 0;
             List<string> operators = new List<string> { "+", "-", "/", "*" };
-
+            List<CalcHistory> history = new List<CalcHistory>();
             while (!done)
             {
-                Console.Out.WriteLine("Please enter what you would like to add, subtract, multiply or divide with spaces between each entry, or type 'exit' to exit.");
+                Console.Out.WriteLine("Please enter what you would like to add, subtract, multiply or divide with spaces between each entry, type 'history' to view previous operations or type 'exit' to exit.");
                 string input = Console.ReadLine();
 
-                if (!input.Trim().Equals("exit", StringComparison.CurrentCultureIgnoreCase))
+  
+                if (!input.Trim().Equals("exit", StringComparison.CurrentCultureIgnoreCase)&& !input.Trim().Equals("history", StringComparison.CurrentCultureIgnoreCase))
                 {
                     var numArray = input.Trim().Split(" ");
 
@@ -55,7 +56,7 @@ namespace Calculator
                                     }
 
                                     Console.WriteLine("The result is {0}.", result);
-
+                                    history.Add(new CalcHistory { Entry = input,Result= result});
                                 }
                             }
                             else
@@ -90,6 +91,7 @@ namespace Calculator
                                     break;
                             }
                             Console.WriteLine("The result is {0}.", result);
+                            history.Add(new CalcHistory { Entry = input, Result = result });
                         }
                         else
                         {
@@ -101,10 +103,27 @@ namespace Calculator
                         Console.Out.WriteLine("Please re-submit your entry as it is invalid.\n You must enter at least two terms separated by spaces.");
                     }
                 }
-                else
+                else if (input.Trim().Equals("exit", StringComparison.CurrentCultureIgnoreCase))
                 {
                     done = true;
                 }
+                else if (input.Trim().Equals("history", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    if (history.Count > 0)
+                    {
+                        Console.WriteLine("Previous Operations:");
+
+                        foreach (var entry in history) {
+
+                          Console.WriteLine(entry.Entry);
+                          Console.WriteLine("The result: {0}",entry.Result) ; 
+                        }
+                    } else
+                    {
+                        Console.WriteLine("There's no history."); 
+                    }
+                }
+
             }
         }
     }
