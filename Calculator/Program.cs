@@ -15,7 +15,7 @@ namespace Calculator
        
             while (!done)
             {
-                Console.Out.WriteLine("Please enter what you would like to add or subtract with spaces between each entry, or type 'exit' to exit.");
+                Console.Out.WriteLine("Please enter what you would like to add, subtract, multiply or divide with spaces between each entry, or type 'exit' to exit.");
                 string input = Console.ReadLine();
 
                 if (!input.Trim().Equals("exit", StringComparison.CurrentCultureIgnoreCase))
@@ -58,7 +58,7 @@ namespace Calculator
                     }
                     else
                     {
-                        Console.WriteLine("Please re-submit your entry as it is invalid.");
+                        Console.WriteLine("Please re-submit your entry as it is invalid.\n An operation must be in the form '8 + 4'.");
                     }
                 }
 
