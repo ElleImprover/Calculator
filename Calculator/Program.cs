@@ -16,13 +16,13 @@ namespace Calculator
 
             while (!done)
             {
-                Console.Out.WriteLine("Please enter what you would like to add or enter x to exit.");
+                Console.Out.WriteLine("Please enter what you would like to add or subtract with spaces between each entry, or enter x to exit.");
                 string input = Console.ReadLine();
 
                 if (!input.Trim().Equals("x", StringComparison.CurrentCultureIgnoreCase))
                 {
                     var numArray = input.Trim().Split(" ");
-                    if (numArray[1].Equals("+", StringComparison.CurrentCultureIgnoreCase) && numArray.Length == 3)
+                    if ((numArray[1].Equals("+", StringComparison.CurrentCultureIgnoreCase)|| numArray[1].Equals("-", StringComparison.CurrentCultureIgnoreCase)) && numArray.Length == 3)
                     {
                         success = Decimal.TryParse(numArray[0], out input1);
 
@@ -31,7 +31,15 @@ namespace Calculator
                             success = Decimal.TryParse(numArray[2], out input2);
                             if (success)
                             {
-                                Console.WriteLine("The sum is {0}.", input1 + input2);
+                                switch (numArray[1])
+                                {
+                                    case "+":
+                                    Console.WriteLine("The sum is {0}.", input1 + input2);
+                                        break;
+                                    case "-":
+                                        Console.WriteLine("The result is {0}.", input1 - input2);
+                                        break;
+                                }
                             }
                             else
                             {
