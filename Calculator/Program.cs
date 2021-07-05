@@ -21,11 +21,11 @@ namespace Calculator
             List<CalcHistory> history = new List<CalcHistory>();
             while (!done)
             {
-                Console.Out.WriteLine("Please enter what you would like to add, subtract, multiply or divide with spaces between each entry, type 'history' to view previous operations or type 'exit' to exit.");
+                Console.Out.WriteLine("Please enter what you would like to add, subtract, multiply or divide with spaces between each entry, type 'history' to view previous operations or type 'exit' to exit.\n");
                 string input = Console.ReadLine();
 
   
-                if (!input.Trim().Equals("exit", StringComparison.CurrentCultureIgnoreCase)&& !input.Trim().Equals("history", StringComparison.CurrentCultureIgnoreCase))
+                if (!input.Trim().Equals("exit", StringComparison.CurrentCultureIgnoreCase)&& !input.Trim().Contains("history", StringComparison.CurrentCultureIgnoreCase))
                 {
                     var numArray = input.Trim().Split(" ");
 
@@ -55,8 +55,8 @@ namespace Calculator
                                             break;
                                     }
 
-                                    Console.WriteLine("The result is {0}.", result);
-                                    history.Add(new CalcHistory { Entry = input,Result= result});
+                                    Console.WriteLine("The result is {0, -20}.", result);
+                                    history.Add(new CalcHistory { Entry = input,Operator=numArray[1],Result= result});
                                 }
                             }
                             else
@@ -75,6 +75,7 @@ namespace Calculator
 
                         if (success)
                         {
+                            var prevEntry = result;
                             switch (numArray[0])
                             {
                                 case "+":
@@ -90,8 +91,8 @@ namespace Calculator
                                     result /= input1;
                                     break;
                             }
-                            Console.WriteLine("The result is {0}.", result);
-                            history.Add(new CalcHistory { Entry = input, Result = result });
+                            Console.WriteLine("The result is {0,-20}.", result);
+                            history.Add(new CalcHistory { Entry = input, Operator=numArray[0], Result = result, PreviousEntry=prevEntry });
                         }
                         else
                         {
@@ -107,16 +108,40 @@ namespace Calculator
                 {
                     done = true;
                 }
-                else if (input.Trim().Equals("history", StringComparison.CurrentCultureIgnoreCase))
+                else if (input.Trim().Contains("history", StringComparison.CurrentCultureIgnoreCase))
                 {
                     if (history.Count > 0)
                     {
                         Console.WriteLine("Previous Operations:");
 
-                        foreach (var entry in history) {
+                    var  histArray= input.Trim().Split(" ");
 
-                          Console.WriteLine(entry.Entry);
-                          Console.WriteLine("The result: {0}",entry.Result) ; 
+                        if ((histArray.Length == 1)|| (histArray.Length == 2))
+                        {
+                            List<CalcHistory> nHistory = history;
+
+                            if (histArray.Length == 2)
+                            {
+                                nHistory = history.FindAll(x => x.Operator == histArray[1]);
+                            }
+
+                            foreach (var entry in nHistory)
+                            {
+                                if (entry.PreviousEntry.HasValue)
+                                {
+                                    Console.WriteLine("_{0}_ {1,-20} ", entry.PreviousEntry,entry.Entry);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("{0,-20}",entry.Entry);
+                                }
+                                Console.WriteLine("The result: {0,-20}\n", entry.Result);
+                            }
+                        } 
+                        else
+                        {
+                            Console.Out.WriteLine("Please re-submit your entry as it is invalid.\n You must enter at least two terms separated by spaces.");
+
                         }
                     } else
                     {
