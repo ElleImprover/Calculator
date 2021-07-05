@@ -15,10 +15,10 @@ namespace Calculator
        
             while (!done)
             {
-                Console.Out.WriteLine("Please enter what you would like to add or subtract with spaces between each entry, or enter x to exit.");
+                Console.Out.WriteLine("Please enter what you would like to add or subtract with spaces between each entry, or type 'exit' to exit.");
                 string input = Console.ReadLine();
 
-                if (!input.Trim().Equals("x", StringComparison.CurrentCultureIgnoreCase))
+                if (!input.Trim().Equals("exit", StringComparison.CurrentCultureIgnoreCase))
                 {
                     var numArray = input.Trim().Split(" ");
                     if (operators.Contains(numArray[1])&& numArray.Length == 3)
